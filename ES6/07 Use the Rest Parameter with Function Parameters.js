@@ -3,7 +3,7 @@
 
 const details = (fname, lname, ...other) =>{
     console.log(fname + " "+ lname + " " + other);
-    console.log(other)
+    console.log(other)  
 }
 
 details("Shw", 'mish', 14, 3, 1999, ["This is an extra array"], JSON.stringify({lolObj:"hahaha"}))
