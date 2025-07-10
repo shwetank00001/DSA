@@ -1,18 +1,34 @@
 var topKFrequent = function(n, k) {
     const arr = [];
-    const nums = n.sort()
+    const nums = n.sort();
 
-    for(let i = 0; i < nums.length; i++){
-        if(!arr.includes(nums[i])){
-            arr.push(nums[i])
+    let left = 0;
+    let right= nums.length -1;
+
+    let arrSize = 0;
+
+    if(left === right){
+        arr.push(nums[left]);
+    }
+    while(arrSize <= k){
+        while(left < right){
+            if(nums[left] === nums[left+1]){
+                    if(!arr.includes(nums[left])){
+                        arr.push(nums[left]);
+                    }
+                    left++;
+            }
+            left++;
         }
+        arrSize++;
     }
 
-    console.log(arr.slice(0,k));
+    console.log(arr);
+
 };
 
 
-topKFrequent([3,0,1,0], 2)
+topKFrequent([1,1,1,2,2,3,4], 3)
 
 
     // if(nums.length === 1){

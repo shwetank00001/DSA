@@ -1,9 +1,15 @@
 var addDigits = function(num) {
-    const arr = num.join(',')
-    console.log(arr)
-    // for(let i =0; i<num.length; i++){
-    //     consolelog()
-    // }
+    while (num < 10){
+        const str = num.toString().split('');
+        console.log(str);
+        num = str.reduce((acc, curr) => {
+            acc = acc + Number(curr);
+            return acc;
+        }, 0)
+        console.log("ele", num)
+    }
+
+    console.log(num)
 };
 
-addDigits([55])
+addDigits(38)
