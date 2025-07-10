@@ -1,36 +1,32 @@
-var topKFrequent = function(n, k) {
-    const arr = [];
-    const nums = n.sort();
+var topKFrequent = function(nums, k) {
+    let freqObj = {};
+    let n = nums.sort((x,y) => x-y)
+    let i = 0
+    // let right = n.length;
 
-    let left = 0;
-    let right= nums.length -1;
+    for(let elements of n){
+        freqObj[elements] =  (freqObj[elements] || 0 ) +1   // I did this because it was returning NaN since freq[ele]  = undefined so i used  ||0
 
-    let arrSize = 0;
-
-    if(left === right){
-        arr.push(nums[left]);
-    }
-    while(arrSize <= k){
-        while(left < right){
-            if(nums[left] === nums[left+1]){
-                    if(!arr.includes(nums[left])){
-                        arr.push(nums[left]);
-                    }
-                    left++;
-            }
-            left++;
-        }
-        arrSize++;
     }
 
-    console.log(arr);
+    const completeArr = Object.entries(freqObj);
+    console.log(completeArr)
+    const sortedArr = completeArr.sort((a,b) => b[1] -a[1]);
+    console.log(sortedArr)
+    const sortedArrSlice = completeArr.slice(0,k);
+
+    const ele = sortedArrSlice.map(item => Number(item[0]))
+    console.log(ele)
 
 };
 
+topKFrequent([4,1,-1,2,-1,2,3], 2)
 
-topKFrequent([1,1,1,2,2,3,4], 3)
 
-
-    // if(nums.length === 1){
-    //     console.log(nums)
-    // }
+    // const data = Object.keys(freqObj)
+    // const ele = data.map(function(item){
+    //     return Number(item)
+    // })
+    // console.log(ele)
+    // const slicedData = ele.slice(0,k);
+    // console.log(slicedData);
