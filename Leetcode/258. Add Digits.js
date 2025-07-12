@@ -1,15 +1,17 @@
-var addDigits = function(num) {
-    while (num < 10){
-        const str = num.toString().split('');
-        console.log(str);
-        num = str.reduce((acc, curr) => {
-            acc = acc + Number(curr);
-            return acc;
-        }, 0)
-        console.log("ele", num)
-    }
+var addDigits = function(nums) {
+    let numsStr = nums.toString();
+    // let l=0;
+    // let r = numsStr.length-1 ;
+    let sum =0 ;
 
-    console.log(num)
+    if(numsStr.length > 1){
+        for (let i =0; i< numsStr.length; i++){
+            sum = sum + Number(numsStr[i]);
+        }
+        return addDigits(sum);
+    }
+    return nums
+
 };
 
-addDigits(38)
+addDigits(115)
