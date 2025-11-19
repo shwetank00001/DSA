@@ -1,23 +1,13 @@
 var groupAnagrams = function(arr) {
-    let left = 0;
-    let right = 1;
-    arr.sort();
-    console.log(arr.sort());
-    const ele = arr.map(function(item){
-        return item.split('').sort().join('');
-    });
-    console.log(ele.sort())
+    const hashmap ={};
+    const mainArr = arr.sort()
 
-    const newArr = [];
-    while(left< right){
-        if(ele[left] === ele[right]){
+    // for(let  i in mainArr){
+    //     console.log(mainArr[i].split('').sort());
 
-        }
+    // }
+    console.log(mainArr);
 
-    }
-    console.log(ele[0] === ele[2])
-
-    
 };
 
-groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+groupAnagrams(["eat","tea","tan","ate","nat","bat"]); 
