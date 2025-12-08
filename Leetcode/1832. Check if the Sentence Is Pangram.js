@@ -1,9 +1,11 @@
 var checkIfPangram = function(sentence) {
-
-    if(sentence.length === 26 || sentence.length > 26 ){
-        console.log("true")
+    const set = new Set(sentence);
+    if(set.size >= 26){
+        console.log("true");
+        return true
     }
     else console.log("false")
+
 };
 
-checkIfPangram("d")
+checkIfPangram("di")
